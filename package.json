@@ -1,13 +1,44 @@
 {
   "name": "decimus",
-  "version": "1.0.0",
-  "main": "lib/index.js",
+  "version": "0.1.1-dev2",
+  "main": "dist/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonhkr/decimus.git"
+  },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.5.3",
     "neon-cli": "^0.4.0",
-    "eslint": "^6.8.0"
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
   },
   "scripts": {
-    "release": "neon build --release"
+    "build": "neon build --release && tsc",
+    "publish-binary": "yarn build && node-pre-gyp package && node-pre-gyp-github publish",
+    "install": "node-pre-gyp install --fallback-to-build=false",
+    "test": "yarn lint && yarn build && jest",
+    "lint": "eslint lib/**.ts"
+  },
+  "dependencies": {
+    "node-pre-gyp": "^0.14.0",
+    "node-pre-gyp-github": "^1.4.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "binary": {
+    "module_name": "index",
+    "host": "https://github.com/jonhkr/decimus/releases/download/",
+    "remote_path": "{version}",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "module_path": "./native",
+    "pkg_path": "."
   }
 }
