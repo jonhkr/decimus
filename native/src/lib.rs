@@ -12,7 +12,7 @@ fn new(mut cx: FunctionContext) -> JsResult<JsArray> {
     }
 }
 
-fn to_string(mut cx: FunctionContext) -> JsResult<JsString> {
+fn str(mut cx: FunctionContext) -> JsResult<JsString> {
     let arr = cx.argument::<JsArray>(0)?;
     let d1 = from_js_array(&mut cx, arr)?;
     Ok(JsString::new(&mut cx, d1.to_string()))
@@ -69,6 +69,6 @@ fn to_js_array<'a, C: Context<'a>>(cx: &mut C, decimal: Decimal) -> Handle<'a, J
 register_module!(mut m, {
     m.export_function("new", new)?;
     m.export_function("add", add)?;
-    m.export_function("toString", to_string)?;
+    m.export_function("str", str)?;
     Ok(())
 });
