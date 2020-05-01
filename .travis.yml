@@ -1,0 +1,24 @@
+os:
+  - osx
+  - linux
+language: node_js
+node_js:
+  - node
+  - 12
+  - 13
+  - 14
+cache:
+  cargo: true
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  # Install Rust and Cargo
+  - curl https://sh.rustup.rs -sSf > /tmp/rustup.sh
+  - sh /tmp/rustup.sh -y
+  - export PATH="$HOME/.cargo/bin:$PATH"
+  - source "$HOME/.cargo/env"
+  # Install NPM packages
+  - node -v
+  - npm -v
+  - yarn
