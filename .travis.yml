@@ -17,10 +17,13 @@ before_install:
   - sh /tmp/rustup.sh -y
   - export PATH="$HOME/.cargo/bin:$PATH"
   - source "$HOME/.cargo/env"
+deploy:
+  provider: script
+  script: yarn publish-binary
 jobs:
   include:
     - stage: npm publish
-      node_js: 14
+      node_js: node
       os: linux
       script: skip
       if: branch = master

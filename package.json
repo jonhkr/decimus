@@ -1,6 +1,6 @@
 {
   "name": "decimus",
-  "version": "0.1.1-dev2",
+  "version": "0.1.1-dev3",
   "main": "dist/index.js",
   "license": "MIT",
   "repository": {
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "neon build --release && tsc",
-    "publish-binary": "yarn build && node-pre-gyp package && node-pre-gyp-github publish",
+    "publish-binary": "yarn build && node-pre-gyp package && node-pre-gyp-github publish --release",
     "install": "node-pre-gyp install --fallback-to-build=false",
     "test": "yarn lint && yarn build && jest",
     "lint": "eslint lib/**.ts"
