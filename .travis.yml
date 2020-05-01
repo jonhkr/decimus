@@ -4,9 +4,9 @@ os:
 language: node_js
 node_js:
   - node
+  - 10
   - 12
   - 13
-  - 14
 cache:
   cargo: true
   yarn: true
