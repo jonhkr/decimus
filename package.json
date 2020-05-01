@@ -20,7 +20,8 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "neon build --release && tsc",
+    "build-typescript": "tsc",
+    "build": "neon build --release && yarn build-typescript",
     "publish-binary": "yarn build && node-pre-gyp package && node-pre-gyp-github publish --release",
     "install": "node-pre-gyp install --fallback-to-build=false",
     "test": "yarn lint && yarn build && jest",
