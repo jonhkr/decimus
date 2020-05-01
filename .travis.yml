@@ -35,3 +35,4 @@ jobs:
           secure: B/K7+RE/vGGVz2pXCVg3TBBCPKotiLLc5OqtOcFT/wkqnP3ti6fjEb3FcL1eeVVjYzHUl53X+9MwpfwtM0x7Q0aoQAnbc8kELv9mtZzBIRs6fm05Jfqz+6cmF6w/k6+xk945nVo7WTRd5JSJeUi1/h1zX8v41pPeCW2PEve6kqxrrhYA2XzuJ/e+/Wbc1S4rvoGGo+DJWfpwK6Y5k2Hj8B2ZzlrKyKrYfoGPGlGFE0X31ycejGNyQFO8Qfu+zXzGA2dnag9EMNBEXjGTvprjIWuZiwzX+z8fjwZAaTJcoWUSrsIemcwTJ+tct3qFxnz5oewL1gJSvGZTqBHqr9u/NfQkcyd8IINlHTgxRPmF3Kr4sooAZbj/ZtoMLE37YLznSodlUv9PRaXg4YOY5Ua7gwbXL7RwjIDft3U8XFuXI6cJthcVNsrm1/2I9cH7mNszgOXcLmX1qZ7PgYnNdx6nCsCBo8MgDq2kmdntAVqnXK9GMCeRlJ8Umu4vaj5+KL7BJXYxy9Nf10TUsg8ORc+nGs3JdbJVlRfZJyBmOrqQyBDsRVgo6j4kP+g6pQ2WuQwt10AUiJNbNfioW6p4rhrw4xE2SSo2Kxm4Y5ZuPauV0uzGd5iIwp7WHf4JCK6xGN5LHdKn5RLc7M6Xq02nMydVdVEL6xqcfR5lC/eezecpFno=
         on:
           repo: jonhkr/decimus
+        skip_cleanup: true
