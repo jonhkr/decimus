@@ -19,12 +19,14 @@ fn str(mut cx: FunctionContext) -> JsResult<JsString> {
 }
 
 fn add(mut cx: FunctionContext) -> JsResult<JsArray> {
-    let arr = cx.argument::<JsArray>(0)?;
+    let arg1 = cx.argument::<JsArray>(0)?;
+    let arg2 = cx.argument::<JsArray>(1)?;
 
-    let d1 = from_js_array(&mut cx, arr)?;
+    let d1 = from_js_array(&mut cx, arg1)?;
+    let d2 = from_js_array(&mut cx, arg2)?;
 
-    if let Some(d2) = d1.checked_add(Decimal::new(10, 0)) {
-        let result = to_js_array(&mut cx, d2);
+    if let Some(d3) = d1.checked_add(d2) {
+        let result = to_js_array(&mut cx, d3);
 
         Ok(result)
     } else {

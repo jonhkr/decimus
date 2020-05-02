@@ -21,6 +21,8 @@ deploy:
   provider: script
   script: yarn publish-binary
   skip_cleanup: true
+  on:
+    branch: master
 jobs:
   include:
     - stage: npm publish

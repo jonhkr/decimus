@@ -1,10 +1,27 @@
-const decimal = require("../native/index.node"); // eslint-disable-line
+const native = require("../native/index.node"); // eslint-disable-line
 
-const d1 = decimal.new("1.5");
-const d2 = decimal.add(d1);
-const str1 = decimal.str(d1);
-const str2 = decimal.str(d2);
+type NativeRepr = [number, ...number[]] & { length: 16 };
 
-console.log(d1, d2, str1, str2);
+export enum RoundingStrategy {
+  HALF_UP
+}
 
-export default decimal;
+export class Decimal {
+  private constructor(private readonly repr: NativeRepr) {}
+
+  static from(input: string): Decimal {
+    return new Decimal(native.new(input));
+  }
+
+  add(other: Decimal): Decimal {
+    return new Decimal(native.add(this.repr, other.repr));
+  }
+
+  round(scale: number, strategy: RoundingStrategy) {
+
+  }
+
+  toString(): string {
+    return native.str(this.repr);
+  }
+}
