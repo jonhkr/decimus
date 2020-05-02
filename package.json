@@ -1,6 +1,6 @@
 {
   "name": "decimus",
-  "version": "0.1.1-dev3",
+  "version": "0.1.1-dev4",
   "main": "dist/index.js",
   "license": "MIT",
   "repository": {
@@ -15,7 +15,6 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.5.3",
-    "neon-cli": "^0.4.0",
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   },
@@ -23,11 +22,12 @@
     "build-typescript": "tsc",
     "build": "neon build --release && yarn build-typescript",
     "publish-binary": "yarn build && node-pre-gyp package && node-pre-gyp-github publish --release",
-    "install": "node-pre-gyp install --fallback-to-build=false",
+    "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "test": "yarn lint && yarn build && jest",
     "lint": "eslint lib/**.ts"
   },
   "dependencies": {
+    "neon-cli": "^0.4.0",
     "node-pre-gyp": "^0.14.0",
     "node-pre-gyp-github": "^1.4.3"
   },

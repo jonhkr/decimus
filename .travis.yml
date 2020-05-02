@@ -21,13 +21,15 @@ deploy:
   provider: script
   script: yarn publish-binary
   skip_cleanup: true
+  on:
+    branch: master
 jobs:
   include:
     - stage: npm publish
       node_js: node
       os: linux
       script: yarn build-typescript
-      if: branch = master
+      if: branch = master AND NOT (type = pull_request)
       deploy:
         provider: npm
         email: jonas.trevisa@gmail.com
