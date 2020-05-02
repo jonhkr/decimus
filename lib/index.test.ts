@@ -5,6 +5,16 @@ test("Decimal.add", () => {
   expect(d.add(Decimal.from("20.5"))).toEqual(Decimal.from("31.0"));
 });
 
+test("Decimal.sub", () => {
+  const d = Decimal.from("10.5");
+  expect(d.sub(Decimal.from("20.5"))).toEqual(Decimal.from("-10.0"));
+});
+
+test("Decimal.mul", () => {
+  const d = Decimal.from("10.5");
+  expect(d.mul(Decimal.from("20.5"))).toEqual(Decimal.from("215.25"));
+});
+
 test("Decimal.round", () => {
   const d = Decimal.from("10.5456");
   expect(d.round(2, RoundingStrategy.HALF_UP)).toEqual(Decimal.from("10.55"));
